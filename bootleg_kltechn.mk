@@ -1,6 +1,7 @@
 #
 # Copyright (C) 2014-2016 The CyanogenMod Project
-# Copyright (C) 2017-2018 The LineageOS Project
+# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2019 The Bootleggers Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,10 +16,20 @@
 # limitations under the License.
 #
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
+# Inherit from kltechn device
 $(call inherit-product, device/samsung/kltechn/full_kltechn.mk)
 
+# Inherit some common BootleggersOS stuff.
+$(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
+
+## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := kltechn
-PRODUCT_NAME := lineage_kltechn
+PRODUCT_NAME := bootleg_kltechn
+PRODUCT_BRAND := Samsung
+PRODUCT_MODEL := Samsung Galaxy S5
+PRODUCT_MANUFACTURER := Samsung
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+DEVICE_MAINTAINERS="IKGapirov"
+
+BOOTLEGGERS_BUILD_TYPE := Shishufied
